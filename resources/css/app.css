@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.my-header {
+    @apply text-3xl;
+}
+
+.fixed-image {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+}
+
+.content {
+    padding-right: 300px;
+}
+
+.circle {
+    border-radius: 50%;
+}
