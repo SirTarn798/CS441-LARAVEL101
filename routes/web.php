@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArtistController;
 
 Route::get('/', function () {
     return redirect()->route('about.index');
@@ -31,6 +32,12 @@ Route::get('/dashboard', function () {
 Route::get('about', [AboutController::class, 'index'])->name('about.index');
 
 Route::get('songs', [SongController::class, 'index'])->name('songs.index');
+
+Route::get('/artists/{artist}/songs',
+    [ArtistController::class, 'createSong']
+)->name('artists.songs.create');
+
+Route::resource('/artists', ArtistController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
